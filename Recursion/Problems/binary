@@ -1,0 +1,26 @@
+public class AWTExample{
+    public static void main(String[] args) {
+        int[] nums = {-1,0,3,5,9,12};
+        int target = 9;
+        System.out.println(binary(nums, target));
+    }
+    public static int binary(int[] nums, int target){
+        int ans = -1;
+        target(0, nums.length-1, nums, target, ans);
+        return ans;
+
+    }
+    public static int target(int start,int end, int[] nums, int target, int ans){
+        int mid = (start+end)/2;
+        if(target > nums[mid]){
+            target(mid+1, end, nums, target, ans);
+        }
+        else if(target<nums[mid]){
+            target(0,mid-1, nums, target, ans);
+        }
+        else {
+            return target(0,mid-1, nums, target, ans);
+        }
+        return -1;
+    }
+}
