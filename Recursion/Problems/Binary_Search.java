@@ -7,9 +7,9 @@ public class AWTExample{
     }
     public static int binary(int[] nums, int target){
 //        return target(0, nums.length-1, nums, target);
-        return method2(0, nums.length-1, nums, target);
+        return target2(0, nums.length-1, nums, target);
     }
-    static int method1(int start,int end, int[] nums, int target){
+    static int target(int start,int end, int[] nums, int target){
         if (start > end ){
             return -1;
         }
@@ -18,32 +18,21 @@ public class AWTExample{
             return mid;
         }
         else if(target<nums[mid]){
-            return method1(0,mid-1, nums, target);
+            return target(0,mid-1, nums, target);
         }
-        else return method1(mid+1, end, nums, target);
+        else return target(mid+1, end, nums, target);
     }
-    static int method2(int start,int end, int[] nums, int target){
+    static int target2(int start,int end, int[] nums, int target){
         int mid = (start+end)/2;
         if (start>end){
             return -1;
         }
         else if(target > nums[mid]){
-            return method2(mid+1, end, nums, target);
+            return target2(mid+1, end, nums, target);
         }
         else if(target<nums[mid]){
-            return method2(start,mid-1, nums, target);
+            return target2(start,mid-1, nums, target);
         }
         else return mid;
-    }
-
-    // ---- 0_ms runtime-----
-    public void method3(char[] s) {
-        if (s != null && s.length > 0) {
-            for (int l = 0, r = s.length - 1; l < r; l++, r--) {
-                char tmp = s[l];
-                s[l] = s[r];
-                s[r] = tmp;
-            }
-        }
     }
 }
