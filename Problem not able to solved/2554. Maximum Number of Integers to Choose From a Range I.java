@@ -41,5 +41,22 @@ class solution{
         }
         return count;
     }
+  public static int maxCount1(int[] banned, int n, int maxSum) {
+    Set<Integer> bannedset = new HashSet<>();
+    for(int num : banned){
+      bannedset.add(num);
+    }
+    int count = 0, sum = 0;
+    for(int i = 1; i<=n; i++){
+      if(bannedset.contains(i){
+        sum += i;
+        if(sum> maxSum){
+          break;
+        }
+        count++;
+      }
+    }
+    return count;
+  }
   
 }
