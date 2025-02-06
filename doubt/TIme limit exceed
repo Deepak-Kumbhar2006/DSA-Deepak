@@ -1,0 +1,42 @@
+public int lengthCycle(ListNode head){
+        ListNode f = head;
+        ListNode s = head;
+        while(f!=null && f.next!=null){
+            f = f.next.next;
+            s = s.next;
+            if (f==s){
+              // This commented Code gives time limit exceed error, why??? ------------------------------------------ ?? 
+//                do {              
+//                    s = s.next;
+//                    length++;
+//                } while (f != s);
+                ListNode temp = s;
+                int length = 0;
+                do {
+                    temp = temp.next;
+                    length++;
+                } while (temp != s);
+                return length;
+            }
+        }
+        return 0;
+    }
+    // -----------------Linked List cycle 2-------------------------
+    // https://leetcode.com/problems/linked-list-cycle-ii/
+
+    public ListNode detectCycle(ListNode head) {
+        int length = lengthCycle(head);
+        if (length==0){
+            return null;
+        }
+        ListNode first = head;
+        ListNode second = head;
+        for (int i = 0; i < length; i++) {
+            first = first.next;
+        }
+        while(second!=first){
+            second = second.next;
+            first = first.next;
+        }
+        return second;
+    }
