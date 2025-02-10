@@ -21,7 +21,7 @@ public int lengthCycle(ListNode head){
         }
         return 0;
     }
-    // -----------------Linked List cycle 2-------------------------
+    // -----------------Linked List cycle 2-----------------------
     // https://leetcode.com/problems/linked-list-cycle-ii/
 
     public ListNode detectCycle(ListNode head) {
